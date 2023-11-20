@@ -36,31 +36,71 @@ void Jueves();
 void Viernes(); 
 void Sabado();
 void Domingo();
+void menu();
 
 main()
 {
-    
-
-    lunes();
-    Martes();
-    Miercoles();
-    Jueves();
-    Viernes();
-    Sabado();
-    Domingo();
-
-
-    /*El Faro - Robert Eggers
-    Akira - Katsuhiro Otomo
-    Cuentos de Terramar - Goro Miyazaki
-    the hateful eight - Quentin tarantino 
-    GodFellas - Martin Scorsese
-    Island of dogs - Wes anderson 
-    El infierno - Luis Estrada 
-    Supercool - Greg Mottola*/
+    menu();
 
 
     return 0;
+}
+
+
+void menu (){
+    int a;
+    cout << "================================\n";
+    cout << "|       Elige Un dia de        |\n";
+    cout << "================================\n";
+    cout << "| 1. Lunes                     |\n";
+    cout << "| 2. Martes                    |\n";
+    cout << "| 3. Miercoles                 |\n";
+    cout << "| 4. Juevs                     |\n";
+    cout << "| 5. Viernes                   |\n";
+    cout << "| 6. Sabado                    |\n";
+    cout << "| 7. Domingo                   |\n";
+    cout << "================================\n";
+    cin >> a;
+    system("cls");
+
+    switch (a)
+        {
+        case 1:
+            system("cls");
+            lunes();
+            break;
+
+        case 2:
+            system("cls");
+            Martes();
+            break;
+
+        case 3:
+            system("cls");
+            Miercoles();
+            break;
+
+        case 4:
+            system("cls");
+            Jueves();
+            break;
+
+        case 5:
+            system("cls");
+            Viernes();
+            break;
+        case 6:
+            system("cls");
+            Sabado();
+            break;
+        case 7:
+            system("cls");
+            Domingo();
+            break;
+        
+        }
+
+
 }
 
 
@@ -74,23 +114,9 @@ void lunes(){
 
     struct horario
     {
-        string morning;
-        string lunch;
-        string afternoon;
-        string evening;
-        float precio1;
-        float precio2;
-        float precio3;
-        float precio4;
-        float precio5;
-        string movie1;
-        string movie2;
-        string movie3;
-        string movie4;
-        string movie5;
-        string movie6;
-        string movie7;
-        string movie8;
+       string morning, lunch, afternoon, evening;
+        float precio1, precio2, precio3, precio4 ,precio5;
+        string movie1,movie2,movie3, movie4, movie5, movie6, movie7, movie8 ;
 
     };
     horario puesto;
@@ -139,29 +165,15 @@ void Martes(){
 
     struct horario
     {
-        string morning;
-        string lunch;
-        string afternoon;
-        string evening;
-        float precio1;
-        float precio2;
-        float precio3;
-        float precio4;
-        float precio5;
-        string movie1;
-        string movie2;
-        string movie3;
-        string movie4;
-        string movie5;
-        string movie6;
-        string movie7;
-        string movie8;
+        string morning, lunch, afternoon, evening;
+        float precio1, precio2, precio3, precio4 ,precio5;
+        string movie1,movie2,movie3, movie4, movie5, movie6, movie7, movie8 ;
 
     };
     horario puesto;
 
-     puesto.morning = "09:00 AM a 10:30 AM";
-     puesto.lunch = "11:30 AM a 01:30 PM";
+    puesto.morning = "09:00 AM a 10:30 AM";
+    puesto.lunch = "11:30 AM a 01:30 PM";
     puesto.afternoon = "02:00 PM a 04:00 PM";
     puesto.evening = "06:00 PM a 08:00 PM"; 
     puesto.precio1 = 2.50;
@@ -203,23 +215,9 @@ void Miercoles(){
 
     struct horario
     {
-        string morning;
-        string lunch;
-        string afternoon;
-        string evening;
-        float precio1;
-        float precio2;
-        float precio3;
-        float precio4;
-        float precio5;
-        string movie1;
-        string movie2;
-        string movie3;
-        string movie4;
-        string movie5;
-        string movie6;
-        string movie7;
-        string movie8;
+        string morning, lunch, afternoon, evening;
+        float precio1, precio2, precio3, precio4 ,precio5;
+        string movie1,movie2,movie3, movie4, movie5, movie6, movie7, movie8 ;
 
     };
     horario puesto;
@@ -266,23 +264,9 @@ void Jueves(){
 
     struct horario
     {
-        string morning;
-        string lunch;
-        string afternoon;
-        string evening;
-        float precio1;
-        float precio2;
-        float precio3;
-        float precio4;
-        float precio5;
-        string movie1;
-        string movie2;
-        string movie3;
-        string movie4;
-        string movie5;
-        string movie6;
-        string movie7;
-        string movie8;
+        string morning, lunch, afternoon, evening;
+        float precio1, precio2, precio3, precio4 ,precio5;
+        string movie1,movie2,movie3, movie4, movie5, movie6, movie7, movie8 ;
 
     };
     horario puesto;
@@ -330,23 +314,9 @@ void Viernes(){
 
     struct horario
     {
-        string morning;
-        string lunch;
-        string afternoon;
-        string evening;
-        float precio1;
-        float precio2;
-        float precio3;
-        float precio4;
-        float precio5;
-        string movie1;
-        string movie2;
-        string movie3;
-        string movie4;
-        string movie5;
-        string movie6;
-        string movie7;
-        string movie8;
+       string morning, lunch, afternoon, evening;
+        float precio1, precio2, precio3, precio4 ,precio5;
+        string movie1,movie2,movie3, movie4, movie5, movie6, movie7, movie8 ;
 
     };
     horario puesto;
@@ -394,23 +364,9 @@ void Sabado(){
 
     struct horario
     {
-        string morning;
-        string lunch;
-        string afternoon;
-        string evening;
-        float precio1;
-        float precio2;
-        float precio3;
-        float precio4;
-        float precio5;
-        string movie1;
-        string movie2;
-        string movie3;
-        string movie4;
-        string movie5;
-        string movie6;
-        string movie7;
-        string movie8;
+        string morning, lunch, afternoon, evening;
+        float precio1, precio2, precio3, precio4 ,precio5;
+        string movie1,movie2,movie3, movie4, movie5, movie6, movie7, movie8 ;
 
     };
     horario puesto;
@@ -458,23 +414,9 @@ void Domingo(){
 
     struct horario
     {
-        string morning;
-        string lunch;
-        string afternoon;
-        string evening;
-        float precio1;
-        float precio2;
-        float precio3;
-        float precio4;
-        float precio5;
-        string movie1;
-        string movie2;
-        string movie3;
-        string movie4;
-        string movie5;
-        string movie6;
-        string movie7;
-        string movie8;
+        string morning, lunch, afternoon, evening;
+        float precio1, precio2, precio3, precio4 ,precio5;
+        string movie1,movie2,movie3, movie4, movie5, movie6, movie7, movie8 ;
 
     };
     horario puesto;
