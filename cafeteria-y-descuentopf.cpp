@@ -71,17 +71,26 @@ int main(void)
 }
 
 void cargarAnimacion() {
-    cout << "Cargando ";
-    for (int i = 0; i < 10; ++i) {
-        cout << ".";
-        this_thread::sleep_for(chrono::milliseconds(500));
+    const char caracteresAnimacion[] = {'|', '/', '-', '\\'};
+    const int numCaracteres = sizeof(caracteresAnimacion) / sizeof(caracteresAnimacion[0]);
+    
+    int indice = 0;
+    
+    for (int i = 0; i < 20; ++i) {
+        cout << "Cargando " << caracteresAnimacion[indice] << "\r";
+        this_thread::sleep_for(chrono::milliseconds(100));
+        cout.flush();  // Limpiar el búfer de salida
+        
+        // Actualizar el índice para el siguiente carácter de animación
+        indice = (indice + 1) % numCaracteres;
     }
-    cout << " Completo!" << endl;
+
+    cout << "Carga completa!" << endl;
 }
 
-void cobro( ){
+void cobro(void){
 int pago_realizado;
-int total_efectivo;
+float total_efectivo;
 
 do
 {
@@ -196,7 +205,7 @@ void pagos(void)
     do
     {
         cout << "================================\n";
-        cout << "|  DESEA AGREGAR AL CARRITO    |\n";
+        cout << "|      COMO DE SEA PAGAR       |\n";
         cout << "================================\n";
         cout << "|   1.EFECTIVO    2.TARJETA    |\n";
         cout << "================================\n";
@@ -213,6 +222,11 @@ void pagos(void)
 
             mostrar_carrito();
             cobro();
+            cargarAnimacion();
+            for (int i = 0; i < index; i++)
+            {
+            Usuario.ListaComprasComida[i] = {0};
+            };
             system("pause");
             d=1;
             break;
@@ -228,10 +242,14 @@ void pagos(void)
             
             mostrar_carrito();
             cobro();
-            system("pause");
+            cargarAnimacion();
+            for (int i = 0; i < index; i++)
+            {
+            Usuario.ListaComprasComida[i] = {0};
+            };
             d=1;
+            system("pause");
             break;
-
         default:
             system("cls");
             cout << "\n*ERROR EL NUMERO INGRESADO ES INCORRECTO*\n";
