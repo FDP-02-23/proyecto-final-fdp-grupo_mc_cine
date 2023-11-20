@@ -1,0 +1,1 @@
+(Cafeteria[i].producto.size(), 30)<<Cafeteria[i].precio << espaciar(6,9)<<"|"

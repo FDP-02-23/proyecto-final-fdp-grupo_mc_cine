@@ -13,7 +13,7 @@ struct comida
 struct cine
 {
     string pelicula;
-    float presio_peli;
+    float precio_peli;
 };
 struct Descuento
 {
@@ -34,12 +34,12 @@ struct factura
 };
 string espaciar(int tamanio, int valor)
 {
-    int espasio = 0;
+    int espacio = 0;
     string texto = "";
 
-    espasio = valor - tamanio;
+    espacio = valor - tamanio;
 
-    for (int i = 0; i < espasio; i++)
+    for (int i = 0; i < espacio; i++)
     {
         texto = texto + " ";
     }
@@ -66,7 +66,7 @@ int index = 0;
 int main(void)
 {
     menu_1();
-    cout << "GRACIS POR ACCEDER AL SISTEMA DE MAC CINE\n";
+    cout << "GRACIAS POR ACCEDER AL SISTEMA DE MAC CINE\n";
     system("pause");
 }
 
@@ -97,7 +97,7 @@ do
     }
     else
     {
-        cout<<"el total ingresado es insuficiente";
+        cout<<"el total INGRESADO es insuficiente";
         cargarAnimacion;
         cout<<"saldo faltante"<<Usuario.total-total_efectivo;
     }
@@ -138,7 +138,7 @@ void menu_1(void)
 
         default:
             system("cls");
-            cout << "\n*ERROR EL NUMERO IGRESADO ES INCORRECTO*\n";
+            cout << "\n*ERROR EL NUMERO INGRESADO ES INCORRECTO*\n";
             break;
         }
 
@@ -152,7 +152,7 @@ void menu_2(void)
     do
     {
         cout << "================================\n";
-        cout << "|        MENU PRINSIPAL        |\n";
+        cout << "|        MENU PRINCIPAL        |\n";
         cout << "================================\n";
         cout << "| 1. Ver Tienda                |\n";
         cout << "| 2. Ver Cartelera             |\n";
@@ -184,7 +184,7 @@ void menu_2(void)
 
         default:
             system("cls");
-            cout << "\n*ERROR EL NUMERO IGRESADO ES INCORRECTO*\n";
+            cout << "\n*ERROR EL NUMERO INGRESADO ES INCORRECTO*\n";
             break;
         }
     } while (c != 1);
@@ -234,7 +234,7 @@ void pagos(void)
 
         default:
             system("cls");
-            cout << "\n*ERROR EL NUMERO IGRESADO ES INCORRECTO*\n";
+            cout << "\n*ERROR EL NUMERO INGRESADO ES INCORRECTO*\n";
             break;
         }
     } while (d != 1);
@@ -255,14 +255,14 @@ void menu_tienda(void)
         {
             if (i < 10)
             {
-                cout << Cafeteria[i].id << espaciar(1, 20) << Cafeteria[i].producto << espaciar(Cafeteria[i].producto.size(), 12) << Cafeteria[i].precio << endl;
+                cout << Cafeteria[i].id << espaciar(1, 22) << Cafeteria[i].producto << espaciar(Cafeteria[i].producto.size(), 32) << Cafeteria[i].precio << endl;
             }
             else
             {
-                cout << Cafeteria[i].id << espaciar(1, 20) << Cafeteria[i].producto << espaciar(Cafeteria[i].producto.size(), 12) << Cafeteria[i].precio << endl;
+                cout << Cafeteria[i].id << espaciar(2, 22) << Cafeteria[i].producto << espaciar(Cafeteria[i].producto.size(), 32) << Cafeteria[i].precio << endl;
             }
         }
-        cout << "11                     Regresar                            N\n";
+        cout << "11                     Regresar                            \n";
         cout << "===========================================================\n";
         cin >> c;
         switch (c)
@@ -303,7 +303,7 @@ void menu_tienda(void)
             break;
         default:
             system("cls");
-            cout << "\n*ERROR EL NUMERO IGRESADO ES INCORRECTO*\n";
+            cout << "\n*ERROR EL NUMERO INGRESADO ES INCORRECTO*\n";
             break;
         }
 
@@ -346,7 +346,7 @@ void agregar_al_carrito(int elementoCafeteria){
             break;
         default:
             system("cls");
-            cout << "\n*ERROR EL NUMERO IGRESADO ES INCORRECTO*\n";
+            cout << "\n*ERROR EL NUMERO INGRESADO ES INCORRECTO*\n";
             break;
         }
 
