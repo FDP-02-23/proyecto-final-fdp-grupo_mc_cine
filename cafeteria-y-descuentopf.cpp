@@ -61,8 +61,11 @@ comida Cafeteria[10] = {
     {5, "Pizza", 2.50},
     {6, "Nachos", 5.00}
 };
-Cliente Usuario;
+int USING1 = 0;
 int index = 0;
+
+Cliente Usuario[20];
+
 int main(void)
 {
     menu_1();
@@ -96,11 +99,11 @@ do
 {
     cout<<"ingrese el total con el que pagara"<<endl;
     cin>> total_efectivo ;cout<<"\n";
-    if (total_efectivo>=Usuario.total)
+    if (total_efectivo>=Usuario[USING1].total)
     {
         cargarAnimacion;
-        cout<<"su cambio es :"<<total_efectivo-Usuario.total<<endl;
-        cout<<"gracias vuelva pronto";
+        cout<<"su cambio es :"<<total_efectivo-Usuario[USING1].total<<endl;
+        cout<<"\ngracias vuelva pronto";
         pago_realizado=1;
         
     }
@@ -108,7 +111,7 @@ do
     {
         cout<<"el total INGRESADO es insuficiente";
         cargarAnimacion;
-        cout<<"saldo faltante"<<Usuario.total-total_efectivo;
+        cout<<"\nsaldo faltante"<<Usuario[USING1].total-total_efectivo;
     }
 } while (pago_realizado!=1);
 
@@ -223,10 +226,7 @@ void pagos(void)
             mostrar_carrito();
             cobro();
             cargarAnimacion();
-            for (int i = 0; i < index; i++)
-            {
-            Usuario.ListaComprasComida[i] = {0};
-            };
+            USING1++;
             system("pause");
             d=1;
             break;
@@ -243,10 +243,7 @@ void pagos(void)
             mostrar_carrito();
             cobro();
             cargarAnimacion();
-            for (int i = 0; i < index; i++)
-            {
-            Usuario.ListaComprasComida[i] = {0};
-            };
+            USING1++;
             d=1;
             system("pause");
             break;
@@ -332,13 +329,13 @@ void mostrar_carrito(){
     float o;
     cout << " ================="  << endl;
     for (int i = 0; i < index; i++){
-        cout << i + 1 << ". Elemento: " << " " << Usuario.ListaComprasComida[i].producto << endl;  
-        cout << i + 1 << ". Precio "<<  " $" << Usuario.ListaComprasComida[i].precio << endl;
-        o+= Usuario.ListaComprasComida[i].precio;
+        cout << i + 1 << ". Elemento: " << " " << Usuario[USING1].ListaComprasComida[i].producto << endl;  
+        cout << i + 1 << ". Precio "<<  " $" << Usuario[USING1].ListaComprasComida[i].precio << endl;
+        o+= Usuario[USING1].ListaComprasComida[i].precio;
     }
-    Usuario.total=o;
+    Usuario[USING1].total=o;
     cout << " ================="  << endl << endl;
-    cout<< "TOTAL = $ "<< Usuario.total << endl;
+    cout<< "TOTAL = $ "<< Usuario[USING1].total << endl;
 }
 
 void agregar_al_carrito(int elementoCafeteria){
@@ -356,7 +353,7 @@ void agregar_al_carrito(int elementoCafeteria){
         switch (x)
         {
         case 1:
-            Usuario.ListaComprasComida[index] = Cafeteria[elementoCafeteria];
+            Usuario[USING1].ListaComprasComida[index] = Cafeteria[elementoCafeteria];
             index++;
             break;
         case 2:
