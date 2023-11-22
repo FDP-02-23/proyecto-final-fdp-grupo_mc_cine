@@ -227,6 +227,7 @@ void pagos(void)
             cobro();
             cargarAnimacion();
             USING1++;
+            index=0;
             system("pause");
             d=1;
             break;
@@ -244,6 +245,7 @@ void pagos(void)
             cobro();
             cargarAnimacion();
             USING1++;
+            index=0;
             d=1;
             system("pause");
             break;
