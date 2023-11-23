@@ -27,11 +27,6 @@ struct Cliente
     string peli;
     float total;
 };
-struct factura
-{
-    comida producto;
-    int cantidad;
-};
 string espaciar(int tamanio, int valor)
 {
     int espacio = 0;
@@ -71,6 +66,11 @@ int main(void)
     menu_1();
     cout << "GRACIAS POR ACCEDER AL SISTEMA DE MAC CINE\n";
     system("pause");
+}
+
+void Menu_admin()
+{
+    
 }
 
 void cargarAnimacion() {
@@ -135,7 +135,7 @@ void menu_1(void)
         {
         case 1:
             system("cls");
-
+            Menu_admin();
             break;
 
         case 2:

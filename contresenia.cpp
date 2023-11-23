@@ -1,24 +1,14 @@
-#include "iostream"
-#include "string"
+#include <iostream>
+#include <string>
 
 using namespace std;
 
 void contrasenia();
-void cont();
 
 main(void)
 {
     contrasenia();
     return 0;
-}
-
-void cont()
-{
-
-    string a;
-    cout << "Ingresa la password \n";
-    cin >> a;
-    contrasenia();
 }
 
 void contrasenia(void)
