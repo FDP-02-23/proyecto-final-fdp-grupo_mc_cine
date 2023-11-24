@@ -1,49 +1,34 @@
 #include "iostream"
 #include "string"
 
-using namespace std;
+using namespace std; 
 
-void contrasenia();
-void cont();
-
-main(void)
+string contra(string a)
 {
-    contrasenia();
-    return 0;
-}
-
-void cont()
-{
-
-    string a;
-    cout << "Ingresa la password \n";
-    cin >> a;
-    contrasenia();
-}
-
-void contrasenia(void)
-{
-    int c = 0;
-    string b, a;
-    string pass = "admin";
-
-    do
+    string b;
+    string pass = "Oreo0404";
+    if ( a == pass)
     {
-        cout << "Ingresa la password \n";
-        cin >> a;
-        if (a == pass)
-        {
-            b = "Password correcta\n";
-            cout << b;
-            c = 1;
-        }
-        else if (a != pass)
-        {
+        b = "Password correcta";
+    }
+    else if (a!=pass)
+    {
 
-            b = "Password correcta\n";
-            cout << b;
-        }
-    } while (c != 1);
+        b = "Password correcta";
+    }
+    return b;
+}
 
-    system("pause");
+void cont(){
+
+    string a,b;
+    cout<<"Ingresa la passord \n";
+    cin>>b;
+    
+
+}
+
+main(void){
+    
+    cont(); 
 }

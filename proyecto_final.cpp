@@ -1,19 +1,17 @@
 #include <iostream>
 #include <chrono>
 #include <thread>
-// numero azar
 #include <stdlib.h>
-// tiempo del cpu
 #include <time.h>
 using namespace std;
-//esta estructura  sirve para escribir cada uno de los productos.
+//Aqui se almacenan cada uno de los productos a vender en la cafeteria.
 struct comida
 {
     int id;
     string producto;
     float precio;
 };
-//esta es tructura es la mas importante para la funcion tienda ahi se almacenan los productos a comprar.
+//esta estructura es la base de las compras aqui se almacenan las comparas echas como maximo 10.
 struct Cliente
 {
     // ticket ComprasPelicula;
@@ -21,8 +19,7 @@ struct Cliente
     string peli;
     float total;
 };
-//declaracion de todas las funciones.
-string espaciar();
+string espaciar(int);
 void cargaranimation();
 void menu_1();
 void menu_2();
@@ -54,8 +51,7 @@ int main(void)
     cout << "GRACIAS POR ACCEDER AL SISTEMA DE MAC CINE\n";
     system("pause");
 }
-
-//F esta funcion sirve para espaciar las tablas del sistema es vastante util aunque con numeros no funciona por eso la tabla del tienda no tiene margen. 
+//Esta Funsion sirve para espaciar ya hacer tablas que se vean mas simetricas.
 string espaciar(int tamanio, int valor)
 {
     int espacio = 0;
@@ -69,7 +65,7 @@ string espaciar(int tamanio, int valor)
     }
     return texto;
 }
-//F comprovante de contrasenia y de ususario es un sub menu del menu 1 opcion 1.
+//esta es la opcion dos de el menu uno. 
 void Menu_admin()
 {
     contrasenia();
@@ -107,8 +103,9 @@ void Menu_admin()
         }
 
     } while (b != 1);
+
 }
-//F cargar una funcion que no es necesaria pero se ve vastante bien.
+//Esta funcion es simplemente estetica se ve bastante bien.
 void cargarAnimacion() {
     const char caracteresAnimacion[] = {'|', '/', '-', '\\'};
     const int numCaracteres = sizeof(caracteresAnimacion) / sizeof(caracteresAnimacion[0]);
@@ -126,7 +123,7 @@ void cargarAnimacion() {
 
     cout << "\nCarga completa!" << endl;
 }
-//F esta funcion es una simulacion de pago solo un if que comprueva que va a se esta pagando con la cantidad exacta y mustra el cambio.
+//Esta esta sirve para simular un cobro y en senia el cambio a dar el cambio.
 void cobro(void){
 int pago_realizado;
 float total_efectivo;
@@ -361,8 +358,9 @@ void menu_tienda(void)
 
     } while (d != 1);
 }
-//F esta funcion toma las cosas almacenadas en en cliente[Using1].carrito de compras Using1 es un contador que se actualiza cada vez que se se paga,
-void mostrar_carrito(){
+//Mostrar carrito mustra todos los productos adquiridos tambien de esta funcion se puede sacar el tiket de compra.
+void mostrar_carrito()
+{
     float o;
     cout << " ================="  << endl;
     for (int i = 0; i < index; i++){
