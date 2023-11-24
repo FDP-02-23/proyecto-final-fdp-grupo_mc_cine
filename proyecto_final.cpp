@@ -1,25 +1,19 @@
 #include <iostream>
 #include <chrono>
 #include <thread>
-
+// numero azar
+#include <stdlib.h>
+// tiempo del cpu
+#include <time.h>
 using namespace std;
-
+//esta estructura  sirve para escribir cada uno de los productos.
 struct comida
 {
     int id;
     string producto;
     float precio;
 };
-struct cine
-{
-    string pelicula;
-    float precio_peli;
-};
-struct Descuento
-{
-    string nombreProducto;
-    float porcentajeDescuento;
-};
+//esta es tructura es la mas importante para la funcion tienda ahi se almacenan los productos a comprar.
 struct Cliente
 {
     // ticket ComprasPelicula;
@@ -27,6 +21,41 @@ struct Cliente
     string peli;
     float total;
 };
+//declaracion de todas las funciones.
+string espaciar();
+void cargaranimation();
+void menu_1();
+void menu_2();
+void pagos();
+void agregar_al_carrito(int);
+void mostrar_carrito();
+void menu_tienda();
+void salas_cine();
+void contrasenia();
+// Declarar los productos
+comida Cafeteria[10] = {
+    {1, "Agua", 2.50},
+    {2, "Palomitas", 4.00},
+    {3, "Soda", 2.00},
+    {4, "Papas", 2.50},
+    {5, "Pizza", 2.50},
+    {6, "Nachos", 5.00}
+};
+//Contador que sirve para cambiar el usuario y que no quede lo productos de el anterior usuario que compro algo.
+int USING1 = 0;
+//Contador que se suma cada ves que el usuario adquiere un producto con un maximo de 10 productos para adquirir mas deja de contar 
+int index = 0;
+//aqui declaro cuanto es el maximo de usuarios para esta prueva.
+Cliente Usuario[20];
+
+int main(void)
+{
+    menu_1();
+    cout << "GRACIAS POR ACCEDER AL SISTEMA DE MAC CINE\n";
+    system("pause");
+}
+
+//F esta funcion sirve para espaciar las tablas del sistema es vastante util aunque con numeros no funciona por eso la tabla del tienda no tiene margen. 
 string espaciar(int tamanio, int valor)
 {
     int espacio = 0;
@@ -40,39 +69,46 @@ string espaciar(int tamanio, int valor)
     }
     return texto;
 }
-void cargaranimation();
-void menu_1();
-void menu_2();
-void pagos();
-void agregar_al_carrito(int);
-void mostrar_carrito();
-void menu_tienda();
-// Declarar los productos
-comida Cafeteria[10] = {
-    {1, "Agua", 2.50},
-    {2, "Palomitas", 4.00},
-    {3, "Soda", 2.00},
-    {4, "Papas", 2.50},
-    {5, "Pizza", 2.50},
-    {6, "Nachos", 5.00}
-};
-int USING1 = 0;
-int index = 0;
-
-Cliente Usuario[20];
-
-int main(void)
-{
-    menu_1();
-    cout << "GRACIAS POR ACCEDER AL SISTEMA DE MAC CINE\n";
-    system("pause");
-}
-
+//F comprovante de contrasenia y de ususario es un sub menu del menu 1 opcion 1.
 void Menu_admin()
 {
+    contrasenia();
     
-}
+    int a, b;
+    do
+    {
+        cout << "================================\n";
+        cout << "|       MENU DE INGRESO        |\n";
+        cout << "================================\n";
+        cout << "| 1. Modificar Tienda          |\n";
+        cout << "| 2. Cambiar pelicuals         |\n";
+        cout << "| 3. Salir                     |\n";
+        cout << "================================\n";
+        cin >> a;
+        switch (a)
+        {
+        case 1:
+            system("cls");
+            break;
 
+        case 2:
+            system("cls");
+            break;
+
+        case 3:
+            system("cls");
+            b = 1;
+            break;
+
+        default:
+            system("cls");
+            cout << "\n*ERROR EL NUMERO INGRESADO ES INCORRECTO*\n";
+            break;
+        }
+
+    } while (b != 1);
+}
+//F cargar una funcion que no es necesaria pero se ve vastante bien.
 void cargarAnimacion() {
     const char caracteresAnimacion[] = {'|', '/', '-', '\\'};
     const int numCaracteres = sizeof(caracteresAnimacion) / sizeof(caracteresAnimacion[0]);
@@ -88,13 +124,12 @@ void cargarAnimacion() {
         indice = (indice + 1) % numCaracteres;
     }
 
-    cout << "Carga completa!" << endl;
+    cout << "\nCarga completa!" << endl;
 }
-
+//F esta funcion es una simulacion de pago solo un if que comprueva que va a se esta pagando con la cantidad exacta y mustra el cambio.
 void cobro(void){
 int pago_realizado;
 float total_efectivo;
-
 do
 {
     cout<<"ingrese el total con el que pagara"<<endl;
@@ -117,7 +152,7 @@ do
 
 
 }
-
+//F esta funcion es el menu de inicio con lo que se muestra al iniciar el sistema.
 void menu_1(void)
 {
     int a, b;
@@ -156,7 +191,7 @@ void menu_1(void)
 
     } while (b != 1);
 }
-
+//F esta funcion menu2 es u sub menu del menu 1 opcion dos este conecta con las acciones que pued etomar el cliente.
 void menu_2(void)
 {
     int a, c;
@@ -201,7 +236,7 @@ void menu_2(void)
         }
     } while (c != 1);
 }
-
+//F esta funcion llama a distintas funciones para simular un pago 1.llama la funcion mostrar carrito. 2.Cobros. 3.Cargar animation. este es la simulacion completa de cobro.
 void pagos(void)
 {
     int d;
@@ -256,7 +291,7 @@ void pagos(void)
         }
     } while (d != 1);
 }
-
+//F este es el switch que permite adquirir productos: Defincion esta funcion toma los producto de la structura comida y las guarda en carrito[] una caracteristica de el struct cliente y se almacena.
 void menu_tienda(void)
 {
     int c, d;
@@ -326,7 +361,7 @@ void menu_tienda(void)
 
     } while (d != 1);
 }
-
+//F esta funcion toma las cosas almacenadas en en cliente[Using1].carrito de compras Using1 es un contador que se actualiza cada vez que se se paga,
 void mostrar_carrito(){
     float o;
     cout << " ================="  << endl;
@@ -339,7 +374,7 @@ void mostrar_carrito(){
     cout << " ================="  << endl << endl;
     cout<< "TOTAL = $ "<< Usuario[USING1].total << endl;
 }
-
+//F es ta funcion agrega a l carriro cuando es seleccionado en menu de tienda.
 void agregar_al_carrito(int elementoCafeteria){
 
     int x = 0;
@@ -368,4 +403,88 @@ void agregar_al_carrito(int elementoCafeteria){
         }
 
     } while (x != 1);
+}
+//F esto Muestra las salas de cine 
+void salas_cine()
+{
+    // colocamos los nombres de las peliculas en un arreglo
+    string peliculas[8] = {"El Faro - Robert Eggers", "Akira - Katsuhiro Ôtomo", "Cuentos de Terramar - Goro Miyazaki",
+                           "the hateful eight - Quentin tarantino", "GodFellas - Martin Scorsese", "Island of dogs - Wes anderson", "El infierno - Luis Estrada",
+                           "Supercool - Greg Mottola"};
+    // inicializamos la semilla para generar numeros del tiempo real de la pc
+    srand(time(NULL));
+    // generamos numeros en un rando del 8 al 1
+
+    
+
+    cout << "__________________________________________________________________________________\n";
+    cout<<"| SALA      PELICULA                                ESTADO                       |\n";
+    cout << "__________________________________________________________________________________\n";
+
+    for (int i = 1; i < 5; i++)
+        {
+            string lleno;
+            int j = rand() % 7 + 0;
+            int disponibles = rand() % 25;
+            if (disponibles<25)
+            {
+                lleno="Disponible";
+            }
+            else if(disponibles=25)
+            {
+                lleno="No disponible";
+            }
+            if (disponibles<10)
+            {
+            cout<<"| "<<i<<espaciar(4,13)<<peliculas[j]<<espaciar(peliculas[j].size(),39)<<" disponibles:"<<disponibles<<"/25 ("<<lleno<<")|\n";
+            }
+            else if (disponibles>10)
+            {
+            cout<<"| "<<i<<espaciar(4,13)<<peliculas[j]<<espaciar(peliculas[j].size(),38)<<" disponibles:"<<disponibles<<"/25 ("<<lleno<<")|\n";
+            }
+        cout << "__________________________________________________________________________________\n";
+        }
+
+
+}
+//F esto hace que las contrasenia
+void contrasenia()
+{
+    int c = 0;
+    string b,a,d;
+    string pass = "admin";
+
+    do
+    {
+        system("cls");
+        cout << "=============================================\n";
+        cout << "|      INGRESE USUARIO Y CONTRASENIA        |\n";
+        cout << "=============================================\n";
+        cout << "| !USUARIO!                                 |\n";
+        cout << "|  ";cin>>d;cout<<"                                         |\n";
+        cout << "| !CONTRASENIA!                             |\n";
+        cout << "|  ";cin>>a;cout<<"                                         |\n";
+        cout << "=============================================\n";
+        if (d == pass)
+        {
+            if (a == pass)
+            {
+            b = "Password correcta\n";
+            cout << b;
+            c = 1;
+            }
+            else if ( a!= pass)
+            {
+
+            b = "Password correcta\n";
+            cout << b;
+            }
+        }
+        else if ( d!= pass)
+        {
+
+            b = "Password correcta\n";
+            cout << b;
+        }
+    } while (c != 1);
 }

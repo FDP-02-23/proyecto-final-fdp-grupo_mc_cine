@@ -19,7 +19,7 @@ string espaciar(int tamanio, int valor)
     return texto;
 }
 
-int main(void)
+void salas_cine()
 {
     // colocamos los nombres de las peliculas en un arreglo
     string peliculas[8] = {"El Faro - Robert Eggers", "Akira - Katsuhiro Ôtomo", "Cuentos de Terramar - Goro Miyazaki",
