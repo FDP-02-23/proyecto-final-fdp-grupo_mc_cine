@@ -4,22 +4,14 @@
 
 using namespace std;
 
+//comida almacena cada una de los productos a la venta en el menu cafeteria.
 struct comida
 {
     int id;
     string producto;
     float precio;
 };
-struct cine
-{
-    string pelicula;
-    float precio_peli;
-};
-struct Descuento
-{
-    string nombreProducto;
-    float porcentajeDescuento;
-};
+//la estructura cliente almacena cada uno de los productos seleccionaos a demas de la pelicuala que se vera.
 struct Cliente
 {
     // ticket ComprasPelicula;
@@ -27,19 +19,8 @@ struct Cliente
     string peli;
     float total;
 };
-string espaciar(int tamanio, int valor)
-{
-    int espacio = 0;
-    string texto = "";
-
-    espacio = valor - tamanio;
-
-    for (int i = 0; i < espacio; i++)
-    {
-        texto = texto + " ";
-    }
-    return texto;
-}
+float calculo_total(float a[],float b[]);
+string espaciar(int tamanio, int valor);
 void cargaranimation();
 void menu_1();
 void menu_2();
@@ -67,12 +48,26 @@ int main(void)
     cout << "GRACIAS POR ACCEDER AL SISTEMA DE MAC CINE\n";
     system("pause");
 }
+//F espaciar esta funcion identifica el tamaño del texto ingresado para colocar espacio y que las tablas no esten desordenadas.
+string espaciar(int tamanio, int valor)
+{
+    int espacio = 0;
+    string texto = "";
 
+    espacio = valor - tamanio;
+
+    for (int i = 0; i < espacio; i++)
+    {
+        texto = texto + " ";
+    }
+    return texto;
+}
+//F Menu_admin es la primera opcion del menu uno este lleva a una verificacion mediante ususario y contraseña
 void Menu_admin()
 {
     
 }
-
+//F CargarAnimation esta funcion genera una animacion de carga muy chiva que decidi incluir no es nesesario pero se ve genial 
 void cargarAnimacion() {
     const char caracteresAnimacion[] = {'|', '/', '-', '\\'};
     const int numCaracteres = sizeof(caracteresAnimacion) / sizeof(caracteresAnimacion[0]);
@@ -90,7 +85,7 @@ void cargarAnimacion() {
 
     cout << "Carga completa!" << endl;
 }
-
+//F cobro
 void cobro(void){
 int pago_realizado;
 float total_efectivo;
@@ -327,15 +322,25 @@ void menu_tienda(void)
     } while (d != 1);
 }
 
-void mostrar_carrito(){
+float calculo_total(float a[],float b[])
+{
     float o;
+for (int i = 0; i < index; i++)
+{
+    o+=b[i];
+}
+a[USING1]=o;
+return a[USING1];
+}
+void mostrar_carrito()
+{
     cout << " ================="  << endl;
-    for (int i = 0; i < index; i++){
+    for (int i = 0; i < index; i++)
+    {
         cout << i + 1 << ". Elemento: " << " " << Usuario[USING1].ListaComprasComida[i].producto << endl;  
         cout << i + 1 << ". Precio "<<  " $" << Usuario[USING1].ListaComprasComida[i].precio << endl;
-        o+= Usuario[USING1].ListaComprasComida[i].precio;
     }
-    Usuario[USING1].total=o;
+    calculo_total(Usuario->total[],)
     cout << " ================="  << endl << endl;
     cout<< "TOTAL = $ "<< Usuario[USING1].total << endl;
 }
