@@ -619,35 +619,35 @@ else {
         cin >> c;
         switch (c)
         {
+        case 0:
+            system("cls");cambio(c);
+            break;
         case 1:
-            cambio(c);
+            system("cls");cambio(c);
             break;
         case 2:
-            cambio(c);
+            system("cls");cambio(c);
             break;
         case 3:
-            cambio(c);
+            system("cls");cambio(c);
             break;
         case 4:
-            cambio(c);
+            system("cls");cambio(c);
             break;
         case 5:
-            cambio(c);
+            system("cls");cambio(c);
             break;
         case 6:
-            cambio(c);
+            system("cls");cambio(c);
             break;
         case 7:
-            cambio(c);
+            system("cls");cambio(c);
             break;
         case 8:
-            cambio(c);
+            system("cls");cambio(c);
             break;
         case 9:
-            cambio(c);
-            break;
-        case 10:
-            cambio(c);
+            system("cls");cambio(c);
             break;    
         case 11:
             system("cls");
@@ -665,7 +665,7 @@ else {
 
 void cambio(int c){
     system("cls");
-    cout<<"Elegiste: " <<Cafeteria[c].producto << " con el precio   " << Cafeteria[c].precio << endl;
+    cout<<"Elegiste: " <<Cafeteria[c].producto << " con el precio de  " << Cafeteria[c].precio << endl;
     cout<<endl<<"\n Agregue su comida a desear: "; cin>>Cafeteria[c].producto;
     cout<<" \n Ingrese el precio de su producto: "; cin>>Cafeteria[c].precio;
     
