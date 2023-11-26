@@ -31,6 +31,8 @@ void salas_cine();
 void contrasenia();
 void mod_tienda();
 void agregar();
+void cambio(int);
+void cambio_tienda();
 // Declarar los productos
 comida Cafeteria[10] = {
     {1, "Agua", 2.50},
@@ -298,7 +300,7 @@ void menu_tienda(void)
     do
     {
         // ID=20 NOMBRE=24
-        int x = 1;
+        int x = 0;
         cout << "==========================================================\n";
         cout << "|                         CAFETERIA                      |\n";
         cout << "==========================================================\n";
@@ -311,7 +313,7 @@ void menu_tienda(void)
             }
             else
             {
-                cout << x << espaciar(2, 22) << Cafeteria[i].producto << espaciar(Cafeteria[i].producto.size(), 32) << Cafeteria[i].precio << endl;
+                cout << x << espaciar(1, 22) << Cafeteria[i].producto << espaciar(Cafeteria[i].producto.size(), 32) << Cafeteria[i].precio << endl;
             }
             x++;
         }
@@ -526,6 +528,7 @@ do
         {
         case 1:
             system("cls");
+            cambio_tienda();
             break;
 
         case 2:
@@ -562,12 +565,11 @@ else {
     for (int i = 6; i <10; i++){
     limite++;
     system("cls");
-    Cafeteria[i].id;
     cout<<endl<<"\n Agregue su comida a desear: "; cin>>Cafeteria[i].producto;
     cout<<" \n Ingrese el precio de su producto: "; cin>>Cafeteria[i].precio;
     cout<<"\n Quiere continuar agregando productos y/n ? "; cin>> salida;
     if (salida  == res ||  salida == res1 ){
-        cout<<" Vuelva pronto regresa al menu anterior \n";
+        cout<<"\n Vuelva pronto regresa al menu anterior \n";
         system("pause");
         d = 1;
         break;
@@ -586,3 +588,83 @@ else {
 } while (d != 1);
     
     }
+
+ void cambio_tienda(void)
+{
+    int c, d;
+    do
+    {
+        // ID=20 NOMBRE=24
+        int x = 0;
+        cout << "==========================================================\n";
+        cout << "|              Elije el producto a cambiar               |\n";
+        cout << "==========================================================\n";
+        cout << "ID                    Nombre                        precio\n";
+        for (int i = 0; i < 10; i++)
+        {
+            if (i < 10)
+            {
+                cout << x << espaciar(1, 22) << Cafeteria[i].producto << espaciar(Cafeteria[i].producto.size(), 32) << Cafeteria[i].precio << endl;
+            }
+            else
+            {
+                cout << x << espaciar(1, 22) << Cafeteria[i].producto << espaciar(Cafeteria[i].producto.size(), 32) << Cafeteria[i].precio << endl;
+            }
+            x++;
+        }
+        cout << "11                     Regresar                            \n";
+        cout << "===========================================================\n";
+        cout << "Ingresa el producto a cambiar del 0 al 9 \n";
+        cin >> c;
+        switch (c)
+        {
+        case 1:
+            cambio(c);
+            break;
+        case 2:
+            cambio(c);
+            break;
+        case 3:
+            cambio(c);
+            break;
+        case 4:
+            cambio(c);
+            break;
+        case 5:
+            cambio(c);
+            break;
+        case 6:
+            cambio(c);
+            break;
+        case 7:
+            cambio(c);
+            break;
+        case 8:
+            cambio(c);
+            break;
+        case 9:
+            cambio(c);
+            break;
+        case 10:
+            cambio(c);
+            break;    
+        case 11:
+            system("cls");
+            d = 1;
+            break;
+        default:
+            system("cls");
+            cout << "\n*ERROR EL NUMERO INGRESADO ES INCORRECTO*\n";
+            break;
+        }
+
+    } while (d != 1);
+}
+
+
+void cambio(int c){
+    cout<<endl<<"\n Agregue su comida a desear: "; cin>>Cafeteria[c].producto;
+    cout<<" \n Ingrese el precio de su producto: "; cin>>Cafeteria[c].precio;
+    
+}
+   
