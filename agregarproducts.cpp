@@ -595,6 +595,7 @@ else {
     do
     {
         // ID=20 NOMBRE=24
+        system("cls");
         int x = 0;
         cout << "==========================================================\n";
         cout << "|              Elije el producto a cambiar               |\n";
@@ -663,6 +664,8 @@ else {
 
 
 void cambio(int c){
+    system("cls");
+    cout<<"Elegiste: " <<Cafeteria[c].producto << " con el precio   " << Cafeteria[c].precio << endl;
     cout<<endl<<"\n Agregue su comida a desear: "; cin>>Cafeteria[c].producto;
     cout<<" \n Ingrese el precio de su producto: "; cin>>Cafeteria[c].precio;
     
