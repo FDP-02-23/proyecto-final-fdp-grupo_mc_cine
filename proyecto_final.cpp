@@ -450,39 +450,43 @@ void contrasenia()
 {
     int c = 0;
     string b,a,d;
-    string pass = "admin";
+    //Datos para que puedan ingresar al administrador
+    string admin = "admin", passwo = "Oreo0404";
 
     do
     {
         system("cls");
         cout << "=============================================\n";
-        cout << "|      INGRESE USUARIO Y CONTRASENIA        |\n";
+        cout << "|      INGRESE USUARIO Y PASSWORD           |\n";
         cout << "=============================================\n";
         cout << "| !USUARIO!                                 |\n";
-        cout << "|  ";cin>>d;cout<<"                                         |\n";
+        cout << "|  ";cin>>d;cout<<"                                         \n";
         cout << "| !CONTRASENIA!                             |\n";
-        cout << "|  ";cin>>a;cout<<"                                         |\n";
+        cout << "|  ";cin>>a;cout<<"                                         \n";
         cout << "=============================================\n";
-        if (d == pass)
+        if (d == admin)
         {
-            if (a == pass)
+            if (a == passwo )
             {
             b = "Password correcta\n";
             cout << b;
+            system("pause");
             c = 1;
             }
-            else if ( a!= pass)
+            else if ( a!= passwo)
             {
 
-            b = "Password correcta\n";
+            b = "Password incorrecta\n";
             cout << b;
+            system("pause");
             }
         }
-        else if ( d!= pass)
+        else if ( d!= admin)
         {
 
-            b = "Password correcta\n";
+            b = "Usuario incorrecto \n";
             cout << b;
+            system("pause");
         }
     } while (c != 1);
 }
