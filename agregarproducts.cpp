@@ -298,7 +298,7 @@ void menu_tienda(void)
     do
     {
         // ID=20 NOMBRE=24
-        int x = 0;
+        int x = 1;
         cout << "==========================================================\n";
         cout << "|                         CAFETERIA                      |\n";
         cout << "==========================================================\n";
@@ -307,12 +307,13 @@ void menu_tienda(void)
         {
             if (i < 10)
             {
-                cout << Cafeteria[i].id << espaciar(1, 22) << Cafeteria[i].producto << espaciar(Cafeteria[i].producto.size(), 32) << Cafeteria[i].precio << endl;
+                cout << x << espaciar(1, 22) << Cafeteria[i].producto << espaciar(Cafeteria[i].producto.size(), 32) << Cafeteria[i].precio << endl;
             }
             else
             {
-                cout << Cafeteria[i].id << espaciar(2, 22) << Cafeteria[i].producto << espaciar(Cafeteria[i].producto.size(), 32) << Cafeteria[i].precio << endl;
+                cout << x << espaciar(2, 22) << Cafeteria[i].producto << espaciar(Cafeteria[i].producto.size(), 32) << Cafeteria[i].precio << endl;
             }
+            x++;
         }
         cout << "11                     Regresar                            \n";
         cout << "===========================================================\n";
@@ -483,6 +484,7 @@ void contrasenia()
             b = "Password incorrecta\n";
             cout << b;
             attemps++;
+            cout<<"intentos: "<<attemps<<"\n";
             system("pause");
             system("cls");
             }
@@ -493,10 +495,18 @@ void contrasenia()
             b = "Usuario incorrecto \n";
             cout << b;
             attemps++;
+            cout<<"intentos: "<<attemps<<"\n";
             system("pause");
             system("cls");
+            
         }
-    } while (c != 1 || attemps == 3 );
+        else if(attemps == 3)
+        {
+            cout<< " Intentos maximos alcanzados ";
+            break;            
+        }
+        
+    } while (c != 1);
 }
 
 void mod_tienda(){
@@ -537,37 +547,42 @@ do
 }
 
 void agregar(){
-int d , limite = 7;
+int d , limite = 6;
 string salida, res = "n", res1 = "N";
 do
 {
 if (limite == 10)
 {
-    cout<<"Se ha alcanzado el valor maximo de productos ";
+    cout<<"Se ha alcanzado el valor maximo de productos \n";
     system("pause");
     d = 1;
 }
-else{
-    do
-    {   
-    for (int i = 7; i <= 10; i++)
-    {
+else {
+    do{   
+    for (int i = 6; i <10; i++){
     limite++;
+    system("cls");
     Cafeteria[i].id;
-    cout<<endl<<" Agregue su comida a desear: "; cin>>Cafeteria[i].producto;
+    cout<<endl<<"\n Agregue su comida a desear: "; cin>>Cafeteria[i].producto;
     cout<<" \n Ingrese el precio de su producto: "; cin>>Cafeteria[i].precio;
-    cout<<" Quiere continuar agregando productos y/n ? "; cin>> salida;
-    }
-    } while ( salida  == res ||  salida == res1 || limite == 10);
-    if (salida  == res ||  salida == res1 )
-    {
-        cout<<" Vuelva pronto regresa al menu anterior";
+    cout<<"\n Quiere continuar agregando productos y/n ? "; cin>> salida;
+    if (salida  == res ||  salida == res1 ){
+        cout<<" Vuelva pronto regresa al menu anterior \n";
         system("pause");
         d = 1;
+        break;
     }
-    cout<<" Se ha alcanzado el maximo de items en la tienda gracias";
+    } 
+    if( limite == 9 ){
+    cout<<"Se han ingresado los 10 items ";
     system("pause");
     d = 1;
-}
+    break;
+    }
+    d = 1;
+    }while (d != 1);
+    }
+    limite += limite;
 } while (d != 1);
-}
+    
+    }
