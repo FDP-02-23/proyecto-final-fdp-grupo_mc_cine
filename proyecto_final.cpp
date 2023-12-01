@@ -5,18 +5,6 @@
 #include <stdlib.h>
 #include <time.h>
 using namespace std;
-struct peliculas_mostrar
-{
-string pelicula[8];
-string hora;
-
-};
-
-struct peliculas_cliente
-{
-
-};
-
 //Aqui se almacenan cada uno de los productos a vender en la cafeteria.
 struct comida
 {
@@ -33,9 +21,11 @@ struct Cliente
     float total;
 };
 
-string peliculas[8] = {"El Faro - Robert Eggers", "Akira - Katsuhiro Ôtomo", "Cuentos de Terramar - Goro Miyazaki",
-                           "the hateful eight - Quentin tarantino", "GodFellas - Martin Scorsese", "Island of dogs - Wes anderson", "El infierno - Luis Estrada",
-                           "Supercool - Greg Mottola"};
+string peliculas[8] = {
+"El Faro - Robert Eggers", "Akira - Katsuhiro Ôtomo", "Cuentos de Terramar - Goro Miyazaki",
+"the hateful eight - Quentin tarantino", "GodFellas - Martin Scorsese", "Island of dogs - Wes anderson", "El infierno - Luis Estrada",
+"Supercool - Greg Mottola"
+};
 
 string espaciar(int);
 void cargaranimation();
@@ -55,13 +45,14 @@ void Cartelera ();
 void Lunes();
 void Martes();
 void Miercoles();
-void Jueves();\
+void Jueves();
 void Viernes();
 void Sabado();
 void Domingo();
 void cam_pelis();
 void Tiket_E();
 void Tiket_T();
+void pedir_y_imprimir(int a[],string b[],float c[],int d);
 
 // Declarar los productos
 comida Cafeteria[10] = {
@@ -709,6 +700,8 @@ void cambio(int c){
 }
    
 void lunes(){
+    int a[4];
+    int c=0;
     // inicializamos la semilla para generar numeros del tiempo real de la pc
     srand(time(NULL));
     cout<<"     _________________________________________________________________________________________________________________\n";
@@ -739,11 +732,14 @@ void lunes(){
             }
 
         cout << "     _________________________________________________________________________________________________________________\n";
+       a[i]=j;
     }
     cout<<endl<<endl;
+    pedir_y_imprimir(a,arrayL,arrayLp,c);
 }
 void Martes(){
-
+    int T[4];
+    int c=0;
     // inicializamos la semilla para generar numeros del tiempo real de la pc
     srand(time(NULL));
     cout<<"     _________________________________________________________________________________________________________________\n";
@@ -772,12 +768,16 @@ void Martes(){
             {
             cout<<"     | "<<" Martes " << espaciar (3, 6)<< arrayL[i]<< espaciar(1, 6)<< arrayLp[0]<<espaciar (1, 11)<<i+1<<espaciar(4,10)<<peliculas[j]<<espaciar(peliculas[j].size(),38)<<" disp:"<<disponibles<<"/25 ("<<lleno<<")|\n";
             }
-
+        T[i]=j;
         cout << "     _________________________________________________________________________________________________________________\n";
+        
     }
     cout<<endl<<endl;
+    pedir_y_imprimir(T,arrayL,arrayLp,c);
 }
 void Miercoles(){
+    int a[4];
+    int c=1;
     // inicializamos la semilla para generar numeros del tiempo real de la pc
     srand(time(NULL));
     cout<<"     _________________________________________________________________________________________________________________\n";
@@ -809,10 +809,14 @@ void Miercoles(){
             }
 
         cout << "     _________________________________________________________________________________________________________________\n";
+        a[i]=j;
     }
     cout<<endl<<endl;
+    pedir_y_imprimir(a,arrayL,arrayLp,c);
 }
 void Jueves(){
+    int a[4];
+    int c=0;
     // inicializamos la semilla para generar numeros del tiempo real de la pc
     srand(time(NULL));
     cout<<"     _________________________________________________________________________________________________________________\n";
@@ -843,11 +847,14 @@ void Jueves(){
             }
 
         cout << "     _________________________________________________________________________________________________________________\n";
+        a[i]=j;
     }
     cout<<endl<<endl;
+    pedir_y_imprimir(a,arrayL,arrayLp,c);
 }
 void Viernes(){
-
+    int a[4];
+    int c=3;
     // inicializamos la semilla para generar numeros del tiempo real de la pc
     srand(time(NULL));
     cout<<"     _________________________________________________________________________________________________________________\n";
@@ -878,12 +885,16 @@ void Viernes(){
             }
 
         cout << "     _________________________________________________________________________________________________________________\n";
+        a[i]=j;
     }
     cout<<endl<<endl;
+    pedir_y_imprimir(a,arrayL,arrayLp,c);
 }
 void Sabado(){
     // inicializamos la semilla para generar numeros del tiempo real de la pc
     srand(time(NULL));
+    int a[4];
+    int c=3;
     cout<<"     _________________________________________________________________________________________________________________\n";
     cout<<"     |   Dia           Horarios          Precios     salas               peliculas                       estado      |\n";
     cout<<"     -----------------------------------------------------------------------------------------------------------------\n";
@@ -911,17 +922,21 @@ void Sabado(){
             cout<<"     | "<<" Sabado " << espaciar (3, 6)<< arrayL[i]<< espaciar(1, 6)<< arrayLp[3]<<espaciar (1, 11)<<i+1<<espaciar(4,10)<<peliculas[j]<<espaciar(peliculas[j].size(),38)<<" disp:"<<disponibles<<"/25 ("<<lleno<<")|\n";
             }
         cout << "     _________________________________________________________________________________________________________________\n";
+        int a[i];a[i]=j;
     }
     cout<<endl<<endl;
+    pedir_y_imprimir(a,arrayL,arrayLp,c);
 }
 void Domingo(){
     // inicializamos la semilla para generar numeros del tiempo real de la pc
     srand(time(NULL));
+    int a[4];
+    int c=3;
     cout<<"     _________________________________________________________________________________________________________________\n";
     cout<<"     |   Dia           Horarios          Precios     salas               peliculas                       estado      |\n";
     cout<<"     -----------------------------------------------------------------------------------------------------------------\n";
-    string arrayL[4]{"09:00 AM a 10:30 AM","11:30 AM a 01:30 PM", "02:00 PM a 04:00 PM","06:00 PM a 08:00 PM"};
-    float arrayLp[4]{3.50, 2.50, 1.25,4.50};
+    string arrayL[c]{"09:00 AM a 10:30 AM","11:30 AM a 01:30 PM", "02:00 PM a 04:00 PM","06:00 PM a 08:00 PM"};
+    float arrayLp[c]{3.50, 2.50, 1.25,4.50};
     for (int i = 0; i < 4; i++)
     {
         string lleno;
@@ -944,8 +959,133 @@ void Domingo(){
             cout<<"     | "<<" Domingo " << espaciar (4, 6)<< arrayL[i]<< espaciar(1, 6)<< arrayLp[3]<<espaciar (1, 11)<<i+1<<espaciar(4,10)<<peliculas[j]<<espaciar(peliculas[j].size(),38)<<" disp:"<<disponibles<<"/25 ("<<lleno<<")|\n";
             }
         cout << "     _________________________________________________________________________________________________________________\n";
+       a[i]=j ;
     }
     cout<<endl<<endl;
+    pedir_y_imprimir(a,arrayL,arrayLp,c);
+}
+void pedir_y_imprimir(int a[],string b[],float c[],int d)
+{
+    ofstream archivo;
+    int personas,peli,compro,total;
+    float pago;
+        cout<<"eliga la sala de la pelicula, si la cantidad de personas ingresar excede el limite, por favor elegir otra sala \n";
+        cin>>peli;
+        cout<<"por favor ingrese la cantidad de personas\n";
+        cin>>personas;
+        cout<<"usted a seleccionado la sala#  y "<<peli;
+        if (personas<0)
+        {
+        cout<<"ingrese una cantidad valida\n";
+        }
+        else if (personas>0)
+        {
+        cout<<personas<<" personas\n";
+        }
+        int z;
+    do
+    {
+        cout << "================================\n";
+        cout << "|      COMO DE SEA PAGAR       |\n";
+        cout << "================================\n";
+        cout << "|   1.EFECTIVO    2.TARJETA    |\n";
+        cout << "================================\n";
+        cin >> z;
+        switch (z)
+        {
+        case 1:
+            system("cls");
+            cout << "================================\n";
+            cout << "|    PAGANDO CON EFECTIVO       |\n";
+            cout << "================================\n";
+            cout << "|        SU CARRITO ES          |\n";
+            cout << "================================\n\n";
+            cout << "================================\n";
+            cout << "sala:"<<peli<<"\n\n";
+            cout << "pelicula:"<<peliculas[a[peli]]<<"\n\n";
+            total=c[d]*personas;
+            cout << "canidad de personas"<<personas<<"\n";
+            cout << "Precio"<<total<<"\n";
+            cout << "================================\n";
+            do
+            {
+            cout<<"ingrese el valor a pagar";cin>>pago;
+            if(pago >= total)
+            {
+            cout<<"su cambio es"<<pago-total;
+            compro=1;
+            }
+            else
+            {
+            cout<<"el monto puesto es insuficiente";
+            }
+            }while(compro!=1);
+            cargarAnimacion();
+            archivo.open("tiquet.txt",ios::out);
+            if (archivo.fail())
+            {
+                cout<<"no se pudo abir el archivo";
+                exit(1);
+            }
+            archivo<< "=========================================\n";
+            archivo<< "sala:"<<peli<<"\n";
+            archivo<< "pelicula:"<<peliculas[a[peli]]<<"\n";
+            total=c[d]*personas;
+            archivo<< "Precio"<<total<<"\n";
+            archivo<< "cantidad de personas"<<personas<<"\n";
+            archivo<< "=========================================\n";
+            archivo<< "========================================="<< endl<< endl;
+            archivo<< "TOTAL Efectivo = $ "<< total << endl;
+            archivo<< "========================================="<< endl;
+            archivo<< "         GRACIAS POR SU COMPRA           "<< endl;
+            archivo.close();
+            system("pause");
+            z=1;
+            break;
+
+        case 2:
+            system("cls");
+            
+            cout << "================================\n";
+            cout << "|      PAGANDO CON TARJETA      |\n";
+            cout << "================================\n";
+            cout << "|        SU CARRITO ES          |\n";
+            cout << "================================\n";
+            cout << "sala:"<<peli<<"\n";
+            cout << "pelicula:"<<peliculas[a[peli]]<<"\n";
+            total=c[d]*personas;
+            cout << "canidad de personas"<<personas<<"\n";
+            cout << "Precio"<<total<<"\n";
+            cout << "================================\n";
+            cout<<"pago realizado";
+            cargarAnimacion();
+            archivo.open("tiquet.txt",ios::out);
+            if (archivo.fail())
+            {
+                cout<<"no se pudo abir el archivo";
+                exit(1);
+            }
+            archivo<< "=========================================\n";
+            archivo<< "sala:"<<peli<<"\n";
+            archivo<< "pelicula:"<<peliculas[a[peli]]<<"\n";
+            archivo<< "Hora:"<<b<<"\n"; total=c[d]*personas;
+            archivo<< "Precio"<<total<<"\n";
+            archivo<< "cantidad de personas"<<personas<<"\n";
+            archivo<< "=========================================\n";
+            archivo<< "========================================="<< endl<< endl;
+            archivo<< "TOTAL Efectivo = $ "<< total << endl;
+            archivo<< "========================================="<< endl;
+            archivo<< "         GRACIAS POR SU COMPRA           "<< endl;
+            archivo.close();
+            system("pause");
+            z=1;
+            break;
+        default:
+            system("cls");
+            cout << "\n*ERROR EL NUMERO INGRESADO ES INCORRECTO*\n";
+            break;
+        }
+    } while (z != 1);
 }
 void Cartelera()
 {   
@@ -1009,30 +1149,9 @@ void Cartelera()
             system("cls");
 
         }
-    cout<<"1-seleccionar pelicula\n"<<"11-regresar\n";
-    cin>>a;
-    if (a != 11)
-    {
-        cout<<"eliga la sala de la pelicula, si la cantidad de personas ingresar excede el limite, por favor elegir otra sala \n";
-        cin>>peli;
-        cout<<"por favor ingrese la cantidad de personas\n";
-        cin>>personas;
-        cout<<"usted a seleccionado la sala#  y "<<peli;
-        if (personas<0)
-        {
-        cout<<"ingrese una cantidad valida\n";
-        }
-        else if (personas>0)
-        {
-        cout<<personas<<" personas\n";
-        }
-        a = 11; 
-        system("cls");
-        break;
+    }while(a!=11);
 
-    }
-    } while (a!=11);
-    system("cls");
+    
 }
 
 void cam_pelis()
