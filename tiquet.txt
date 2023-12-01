@@ -1,0 +1,11 @@
+=========================================
+sala:1
+pelicula:Island of dogs - Wes anderson
+Precio7
+cantidad de personas2
+=========================================
+=========================================
+
+TOTAL Efectivo = $ 7
+=========================================
+         GRACIAS POR SU COMPRA           
