@@ -677,7 +677,6 @@ else {
     } while (d != 1);
 }
 
-
 void cambio(int c){
     system("cls");
     cout<<"Elegiste: " <<Cafeteria[c].producto << " con el precio de  " << Cafeteria[c].precio << endl;
@@ -915,6 +914,7 @@ void Sabado(){
     cout<<endl<<endl;
 }
 void Domingo(){
+    int a,personas,peli;
     // colocamos los nombres de las peliculas en un arreglo
     string peliculas[8] = {"El Faro - Robert Eggers", "Akira - Katsuhiro Ôtomo", "Cuentos de Terramar - Goro Miyazaki",
                            "the hateful eight - Quentin tarantino", "GodFellas - Martin Scorsese", "Island of dogs - Wes anderson", "El infierno - Luis Estrada",
@@ -950,6 +950,7 @@ void Domingo(){
         cout << "     _________________________________________________________________________________________________________________\n";
     }
     cout<<endl<<endl;
+      
 }
 void Cartelera()
 {   
@@ -1013,8 +1014,9 @@ void Cartelera()
             system("cls");
 
         }
-    cout<<"1-seleccionar pelicula\n"<<"11-regresar\n";
-    cin>>a;
+cout<<"1-seleccionar pelicula\n"<<"11-regresar\n";
+cin>>a;
+
     if (a != 11)
     {
         cout<<"eliga la sala de la pelicula, si la cantidad de personas ingresar excede el limite, por favor elegir otra sala \n";
@@ -1033,7 +1035,6 @@ void Cartelera()
         a = 11; 
         system("cls");
         break;
-
     }
     } while (a!=11);
     system("cls");
